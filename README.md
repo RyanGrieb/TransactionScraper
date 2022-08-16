@@ -15,3 +15,4 @@ Currently this script only supports the banking services I use, if you'd like to
 ## Todo
 * Implement separate login credentials for each individual website
 * User parameters/options to change which websites the script should accesses
+* Handle website errors gracefully (Shouldn't crash the whole script, just skip to next website..)
