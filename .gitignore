@@ -1,0 +1,4 @@
+cred.json
+*.xlsx
+geckodriver.log
+__pychace__
