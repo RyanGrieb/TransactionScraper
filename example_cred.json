@@ -1,0 +1,24 @@
+{
+	"broadway_bank": {
+		"username": "foo",
+		"password": "bar"
+	},
+	"cardmember_service": {
+		"username": "foo",
+		"password": "bar",
+		"sec_questions": [
+			{
+				"What is the name of your first pet?": "abc"
+			},
+			{
+				"In what school did you attend the 6th grade?": "efg"
+			},
+			{
+				"What was your favorite game as a child?": "hij"
+			},
+			{
+				"foo": "bar"
+			}
+		]
+	}
+}
