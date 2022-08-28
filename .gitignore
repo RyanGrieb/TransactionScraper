@@ -3,3 +3,4 @@ cred.json
 geckodriver.log
 __pycache__/
 *.~lock*
+transactions/

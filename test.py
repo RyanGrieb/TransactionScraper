@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from openpyxl import Workbook
-from transaction import Transaction
+from sites.transaction import Transaction
 from os.path import exists
 from openpyxl import load_workbook
 from selenium.webdriver.firefox.options import Options
