@@ -4,7 +4,7 @@ import logging
 from openpyxl import load_workbook
 from openpyxl import Workbook
 from datetime import datetime
-from transaction import Transaction
+from .transaction import Transaction
 
 # TODO: Support multiple json options other than securityQuestions
 

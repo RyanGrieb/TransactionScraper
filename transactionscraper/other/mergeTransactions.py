@@ -1,8 +1,8 @@
-from transaction import Transaction
+import transactionscraper.common.driver as driver
+from transactionscraper.common.transaction import Transaction
 from openpyxl import load_workbook
 from openpyxl import Workbook
 import os
-import driver
 from datetime import datetime
 
 

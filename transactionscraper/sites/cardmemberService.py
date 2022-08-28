@@ -1,7 +1,7 @@
 import os.path
 import json
-import driver
-from transaction import Transaction
+import transactionscraper.common.driver as driver
+from transactionscraper.common.transaction import Transaction
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
