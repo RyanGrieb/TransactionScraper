@@ -1,9 +1,7 @@
-from lib2to3.pgen2 import driver
 import sys
 from os.path import exists
 import logging
 import subprocess
-
 
 def main():
     if exists("used_institutions.txt"):
@@ -16,6 +14,9 @@ def main():
                 continue
             if line[0] != "#":
                 scriptNames.append((line[line.index("|")+1:-1]).replace(" ", ""))
+
+        # Run script which would merge all transactions into a single excel file
+        scriptNames.append("mergeTransactions.py")
 
         for script in scriptNames:
             print("Running script - {}".format(script))

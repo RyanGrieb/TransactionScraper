@@ -4,6 +4,7 @@ import logging
 from openpyxl import load_workbook
 from openpyxl import Workbook
 from datetime import datetime
+from transaction import Transaction
 
 # TODO: Support multiple json options other than securityQuestions
 
@@ -75,12 +76,46 @@ def sortTransactions(transactions):
                                               1] = transactions[j+1], transactions[j]
 
 
+def loadExcelTransactions(sheet, transactions):
+    for row in sheet.rows:
+
+        if row[0].value == None:
+            break
+        if row[0].value == 'Account':
+            continue
+
+        account = row[0].value
+        date = row[1].value
+        desc = row[2].value
+        amount = row[3].value
+
+        # Don't load pending transactions from excel, the desc & date change over time through the bank
+        if 'pending' in str(date).lower():
+            print('load_excel_trans: Skip loading existing pending transaction...')
+            continue
+
+        excel_transaction = Transaction(date, desc, amount, account)
+        dup_transaction = False
+
+        # Note: This code may prevent us from viewing duplicate transactions that could possibly occur
+        for transaction in transactions:
+            if transaction.matches(excel_transaction):
+                print('****')
+                print(
+                    'load_excel_trans: found dup. transaction - skip loading this from excel')
+                print(excel_transaction)
+                print('****')
+                dup_transaction = True
+                break
+
+        if not dup_transaction:
+            transactions.append(excel_transaction)
+
+
 def updateTransactions(institutionName, transactions):
 
-    # FIXME: This currently doesn't save previous transactions from the old excel file
-
     path = "{}/transactions/institutions".format(
-        os.getcwd(), institutionName)
+        os.getcwd())
     # Load and define excel file
     file_exists = os.path.exists(
         '{}/{}.xlsx'.format(path, institutionName))
@@ -116,6 +151,9 @@ def updateTransactions(institutionName, transactions):
 
     sheet['F1'] = 'Last Updated:'
     sheet['G1'] = datetime.now().strftime('%m/%d/%y %H:%M:%S')
+
+    # Load previous transactions from excel
+    loadExcelTransactions(sheet, transactions)
 
     # Print transactions onto excel sheet
     sortTransactions(transactions)

@@ -1,5 +1,5 @@
 # Remove the hashtag to collect data from that specific institution. (Do not delete this file!)
-Broadway Bank | broadwayBank.py
-Cardmember Service | cardmemberService.py
+# Broadway Bank | broadwayBank.py
+ Cardmember Service | cardmemberService.py
 # Suncoast Credit Union | suncoastCreditUnion.py
 # IBC Bank | ibcBank.py

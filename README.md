@@ -13,7 +13,6 @@ Currently this script only supports the banking services I use, if you'd like to
 * [Cardmember Service](https://www.myaccountaccess.com/onlineCard/login.do)
 
 ## Todo
-* Merge excel files generated from each institution
-* Retain existing data from current excel files (Regression when we re-wrote program)
+* Refact project layout into proper modules? - I'm not sure but our current approach doesn't seem correct
 * Save website cache from selenium - Avoid unrecognized device messages every login
 * Handle website errors gracefully (Shouldn't crash the whole script, just skip to next website..)

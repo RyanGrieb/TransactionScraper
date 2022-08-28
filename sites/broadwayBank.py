@@ -19,7 +19,7 @@ def main():
 
     # Define browser arguments
     options = Options()
-    #options.add_argument('--headless')
+    options.add_argument('--headless')
 
     browser = webdriver.Firefox(options=options)
 

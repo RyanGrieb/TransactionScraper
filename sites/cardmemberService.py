@@ -20,7 +20,7 @@ def main():
 
     # Define browser arguments
     options = Options()
-    #options.add_argument('--headless')
+    options.add_argument('--headless')
 
     browser = webdriver.Firefox(options=options)
     browser.get('https://www.myaccountaccess.com/onlineCard/login.do')
@@ -105,7 +105,7 @@ def main():
             date_element.text, desc_element.text, amount, 'Credit Card')
         transactions.append(transaction)
         print(transaction)
-
+    
     driver.updateTransactions(name, transactions)
     browser.quit()
 
