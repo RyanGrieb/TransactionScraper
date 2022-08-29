@@ -3,6 +3,7 @@ import logging
 import subprocess
 import transactionscraper.sites.cardmemberService
 import transactionscraper.sites.broadwayBank
+import transactionscraper.sites.suncoastCreditUnion
 import transactionscraper.other.mergeTransactions
 import os
 
@@ -12,7 +13,8 @@ def main():
     # TODO: I don't enjoy relying on a dictionary to store all scripts we can run...
     scriptDict = {
         "broadwayBank.py": transactionscraper.sites.broadwayBank.main,
-        "cardmemberService.py": transactionscraper.sites.cardmemberService.main}
+        "cardmemberService.py": transactionscraper.sites.cardmemberService.main,
+        "suncoastCreditUnion.py": transactionscraper.sites.suncoastCreditUnion.main}
 
     # os.chdir(os.path.dirname(sys.argv[0]))
     scriptNames = []
